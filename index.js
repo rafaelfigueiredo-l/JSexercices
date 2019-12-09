@@ -32,9 +32,25 @@ function reverse4(string){
   console.log(reversed);
 }
 
+function palindrome(str){
+  let result = false;
+
+  const reversed = str.split('').reduce(function(acc, currentValue){
+    return currentValue + acc;
+  });
+
+  if(reversed === str) result = true;
+
+  console.log(result);
+
+}
+
 
 
 reverse1('rafael');
 reverse2('rafael');
 reverse3('rafael');
 reverse4('rafael');
+
+palindrome('rafael');
+palindrome('renner');
