@@ -65,17 +65,17 @@ function reverseInt(int){
   const signNumber = Math.sign( int );
   const convertedToString = int.toString().split('').reverse().join('');
   const number = parseInt(convertedToString, 10);
-  
+
   console.log(number * signNumber);
 }
 
-console.log('%c Reverse String', 'color: green; font-weight: bold');
+console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
 reverse2('rafael');
 reverse3('rafael');
 reverse4('rafael');
 
-console.log('%c Palindrome', 'color: green; font-weight: bold');
+console.log('%c Palindrome | Given a string, return true if the string is a palindrome or false if it is not. Palindromes are strings that form the same word if it is reversed. *do* include spaces and punctuation in determining if the string is a palindrome.', 'color: green; font-weight: bold');
 palindrome('rafael');
 palindrome('renner');
 palindrome2('rafael');
@@ -83,7 +83,7 @@ palindrome2('renner');
 palindrome3('rafael');
 palindrome3('renner');
 
-console.log('%c Reverse Int', 'color: green; font-weight: bold');
+console.log('%c Reverse Int | Given an integer, return an integer that is the reverse ordering of numbers.', 'color: green; font-weight: bold');
 reverseInt(51);
 reverseInt(-189);
 reverseInt(-5);
