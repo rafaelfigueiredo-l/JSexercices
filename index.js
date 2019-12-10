@@ -46,11 +46,9 @@ function palindrome(str){
 }
 
 function palindrome2(str){
-  
+
   const result = str.split('').reverse().join('');
-
   console.log( result === str);
-
 }
 
 function palindrome3(str){
@@ -61,6 +59,14 @@ function palindrome3(str){
 
   console.log(result);
 
+}
+
+function reverseInt(int){
+  const signNumber = Math.sign( int );
+  const convertedToString = int.toString().split('').reverse().join('');
+  const number = parseInt(convertedToString, 10);
+  
+  console.log(number * signNumber);
 }
 
 console.log('%c Reverse String', 'color: green; font-weight: bold');
@@ -76,3 +82,10 @@ palindrome2('rafael');
 palindrome2('renner');
 palindrome3('rafael');
 palindrome3('renner');
+
+console.log('%c Reverse Int', 'color: green; font-weight: bold');
+reverseInt(51);
+reverseInt(-189);
+reverseInt(-5);
+reverseInt(-51);
+reverseInt(-90);
