@@ -3,7 +3,7 @@ import './style.css';
 
 function reverse1(string){
   const result = string.split('').reverse().join('');
-  console.log(result);
+  console.log('reverse1', string,result);
 }
 
 function reverse2(string){
@@ -12,7 +12,7 @@ function reverse2(string){
   for( let i = 0 ; i < chars.length; i++){
     reversed.unshift(string[i]);
   }
-  console.log(reversed.join(''));
+  console.log('reverse2', string, reversed.join(''));
 }
 
 function reverse3(string){
@@ -21,7 +21,7 @@ function reverse3(string){
   for (let char of string ){
     acc = char + acc;
   }
-  console.log(acc);
+  console.log('reverse3', string, acc);
 }
 
 function reverse4(string){
@@ -41,14 +41,14 @@ function palindrome(str){
 
   if(reversed === str) result = true;
 
-  console.log(result);
+  console.log('palindrome1', str, result);
 
 }
 
 function palindrome2(str){
 
   const result = str.split('').reverse().join('');
-  console.log( result === str);
+  console.log('palindrome2', str,  result === str);
 }
 
 function palindrome3(str){
@@ -57,7 +57,7 @@ function palindrome3(str){
     return char === str[str.length - i - 1];
   });
 
-  console.log(result);
+  console.log('palindrome3', str, result);
 
 }
 
@@ -66,8 +66,45 @@ function reverseInt(int){
   const convertedToString = int.toString().split('').reverse().join('');
   const number = parseInt(convertedToString, 10);
 
-  console.log(number * signNumber);
+  console.log(int, number * signNumber);
 }
+
+function maxChar(str){
+  const strArr = str.toString().split('');
+  let charMap = {};
+  let maxValue = 0;
+  let maxKey = '';
+
+ strArr.map((currentValue, index) => {
+   if(!charMap[currentValue]){
+     charMap[currentValue] = 1;
+   } else {
+     charMap[currentValue]++;
+   }
+ });
+
+  for( let item in charMap){
+    if(maxValue < charMap[item]){
+      maxValue = charMap[item];
+      maxKey = item;
+    }
+  }
+
+  console.log(str, maxKey, maxValue);
+}
+
+function fizzBuzz(int){
+  for(let i = 0; i < int; i++){
+    if(i % 3 === 0 && i % 5 === 0){
+      console.log('fizzbuzz');
+    } else {
+      if(i % 3 === 0) console.log('fizz');
+      if(i % 5 === 0) console.log('buzz');
+    }
+  }
+}
+
+
 
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
@@ -89,3 +126,13 @@ reverseInt(-189);
 reverseInt(-5);
 reverseInt(-51);
 reverseInt(-90);
+
+console.log('%c Max Chars | Given a string, return the characther that is most commonly used in the string.', 'color: green; font-weight: bold');
+
+maxChar('abccccccccccd');
+maxChar('apple 13039301093000000000');
+maxChar('rafafafafafaffafafafafafafaafafaff');
+
+console.log('%c FizzBuzz | Write a program that console logs the numbers from 1 to n. But for multiples of three print "fizz" instead of the number and for the multiples of five print "buzz". For numbers which are multiples of both three and five print "fizzbuzz".', 'color: green; font-weight: bold');
+
+fizzBuzz(10);
