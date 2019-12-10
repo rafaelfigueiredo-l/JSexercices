@@ -105,6 +105,41 @@ function fizzBuzz(int){
   }
 }
 
+function fizzBuzz(int){
+  console.log(int);
+  for(let i = 0; i < int; i++){
+    if(i % 3 === 0 && i % 5 === 0 && i !== 0){
+      console.log('fizzbuzz');
+    } else {
+      if(i % 3 === 0) console.log('fizz');
+      if(i % 5 === 0) console.log('buzz');
+    }
+  }
+}
+
+function chunkArray(chunk, size){
+  let subArrays = [];
+  let arrayWithSize = [];
+
+  chunk.map((currentValue, i) => {
+     arrayWithSize.push(currentValue);
+
+      if( (i + 1) % size === 0){
+        subArrays.push(arrayWithSize);
+        arrayWithSize = [];
+      }
+
+      if( (i + 1) === chunk.length && !arrayWithSize){
+          subArrays.push(arrayWithSize);
+      }
+
+  });
+
+  console.log(subArrays);
+
+
+}
+
 
 
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
@@ -138,3 +173,11 @@ console.log('%c FizzBuzz | Write a program that console logs the numbers from 1 
 
 fizzBuzz(20);
 fizzBuzz(10);
+
+
+console.log('%c Array Chunking | Given an array and chunk size, divide the array into many subarrays where each subarray is of length size.', 'color: green; font-weight: bold');
+
+
+
+chunkArray([1,2,3,4], 2);
+chunkArray([1,2,3,4,5,6,7,8,9,10], 3);
