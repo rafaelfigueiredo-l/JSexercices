@@ -166,6 +166,49 @@ function chunkArray3(chunk, size){
   console.log('chunkArray3', subArray);
 }
 
+function anagrams1(strA, strB){
+  let result = '';
+  let error = '';
+  const cleanStrA = strA.replace(/[^A-Z0-9]/ig, "").toLowerCase().split('');
+  const cleanStrB = strB.replace(/[^A-Z0-9]/ig, "").toLowerCase().split('');
+
+  if(cleanStrA.length !== cleanStrB.length) error = true;
+
+  let charMapA = {};
+  let charMapB = {};
+
+  if(!error){
+    for(let element of cleanStrA ){
+      if(!charMapA[element]){
+        charMapA[element] = 1;
+      } else {
+        charMapA[element]++;
+      }
+    }
+
+    for(let element of cleanStrB ){
+      if(!charMapB[element]){
+        charMapB[element] = 1;
+      } else {
+        charMapB[element]++;
+      }
+    }
+
+    for(let element of charMapA){
+      if(charMapA[element] !== charMapB[element]){
+        error = true;
+      }
+    }
+
+  }
+
+  if( !error ){
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+  
+}
 
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
@@ -212,3 +255,7 @@ chunkArray2([1,2,3,4,5,6,7,8,9,10], 3);
 
 chunkArray3([1,2,3,4], 2);
 chunkArray3([1,2,3,4,5,6,7,8,9,10], 3);
+
+anagrams1('rail safety', 'fairy tales');
+anagrams1('rail! SAFETY!', 'fairy tales');
+anagrams1('hi there', 'bye there');
