@@ -152,6 +152,20 @@ function chunkArray2(chunk, size){
   console.log('chunkArray2', subArray);
 }
 
+function chunkArray3(chunk, size){
+  let subArray = [];
+  for(let element of chunk){
+    const last = subArray[subArray.length - 1];
+
+    if(!last || last.length === size){
+      subArray.push([element]);
+    } else {
+      last.push(element);
+    }
+  }
+  console.log('chunkArray3', subArray);
+}
+
 
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
@@ -195,3 +209,6 @@ chunkArray([1,2,3,4,5,6,7,8,9,10], 3);
 
 chunkArray2([1,2,3,4], 2);
 chunkArray2([1,2,3,4,5,6,7,8,9,10], 3);
+
+chunkArray3([1,2,3,4], 2);
+chunkArray3([1,2,3,4,5,6,7,8,9,10], 3);
