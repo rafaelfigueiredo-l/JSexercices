@@ -129,17 +129,28 @@ function chunkArray(chunk, size){
         arrayWithSize = [];
       }
 
-      if( (i + 1) === chunk.length && !arrayWithSize){
+      if( (i + 1) === chunk.length && arrayWithSize.length > 0){
           subArrays.push(arrayWithSize);
       }
 
   });
 
-  console.log(subArrays);
+  console.log('chunArray: ', subArrays);
 
 
 }
 
+function chunkArray2(chunk, size){
+  const subArray = [];
+  let index = 0;
+
+  while( index < chunk.length){
+    subArray.push(chunk.slice(index, index + size));
+    index += size;
+  }
+
+  console.log('chunkArray2', subArray);
+}
 
 
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
@@ -181,3 +192,6 @@ console.log('%c Array Chunking | Given an array and chunk size, divide the array
 
 chunkArray([1,2,3,4], 2);
 chunkArray([1,2,3,4,5,6,7,8,9,10], 3);
+
+chunkArray2([1,2,3,4], 2);
+chunkArray2([1,2,3,4,5,6,7,8,9,10], 3);
