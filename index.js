@@ -194,7 +194,7 @@ function anagrams1(strA, strB){
       }
     }
 
-    for(let element of charMapA){
+    for(let element in charMapA){
       if(charMapA[element] !== charMapB[element]){
         error = true;
       }
@@ -203,11 +203,51 @@ function anagrams1(strA, strB){
   }
 
   if( !error ){
-    console.log(true);
+    console.log('anagrams1:', true);
   } else {
-    console.log(false);
+    console.log('anagrams1:', false);
   }
-  
+
+}
+
+function anagrams2(aStr, bStr){
+  let error = null;
+  let result = '';
+
+  const aCharMap = anagrams2_buildCharMap(aStr);
+  const bCharMap = anagrams2_buildCharMap(bStr);
+
+  if(Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
+    error = true; 
+  }
+
+  for(let element in aCharMap){
+    if(aCharMap[element] !== bCharMap[element]){
+      error = true;
+    }
+  }
+
+
+  if(!error){
+    result = true;
+  } else {
+    result = false;
+  }
+
+  console.log('anagrams2:', result);
+
+  //console.log(result, error, aCharMap, bCharMap);
+
+}
+
+function anagrams2_buildCharMap(str){
+  let charMap = {};
+
+  for(let char of str.replace(/[^A-Z0-9]/ig, "").toLowerCase()){
+    charMap[char] = charMap[char] + 1 || 1;
+  }
+
+  return charMap;
 }
 
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
@@ -256,6 +296,12 @@ chunkArray2([1,2,3,4,5,6,7,8,9,10], 3);
 chunkArray3([1,2,3,4], 2);
 chunkArray3([1,2,3,4,5,6,7,8,9,10], 3);
 
+console.log('%c Anagrams | Check to se if two provided strings are anagrams of eachother. One string is an anagram of another if it uses the same characters in the quantity. Only consider characters, not spaces or punctuation. Consider capital letters to be the same as lower case.', 'color: green; font-weight: bold');
+
 anagrams1('rail safety', 'fairy tales');
 anagrams1('rail! SAFETY!', 'fairy tales');
 anagrams1('hi there', 'bye there');
+
+anagrams2('rail safety', 'fairy tales');
+anagrams2('rail! SAFETY!', 'fairy tales');
+anagrams2('hi there', 'bye there');
