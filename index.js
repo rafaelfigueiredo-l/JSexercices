@@ -277,6 +277,41 @@ function capitalize1(str){
   console.log('capitalize:', strMap);
 }
 
+function capitalize2(str){
+  let words = [];
+  for(let word of str.split(' ')){
+    words.push(word[0].toUpperCase() + word.slice(1));
+  }
+
+  const result = words.join(' ');
+
+  console.log('capitalize2:', result);
+}
+
+
+function steps(n){
+  let arrBlank = [];
+  let mapBlank = {};
+
+  for( let i = 0; i < n ; i++){
+    arrBlank.push('#');
+    mapBlank[i] = arrBlank.join('');
+  }
+
+
+  for ( let i = 0; i < n ; i++){
+    if(mapBlank[i].length < n){
+      //let x = n - i - 1;
+
+      for( x = n ; x !== 1 ; x - i - 1  ){
+        mapBlank[i] = mapBlank[i] + x;
+      }
+    }
+  }
+
+  console.log('Steps:', mapBlank);
+}
+
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
 reverse2('rafael');
@@ -344,3 +379,14 @@ console.log('%c Capitalize | Write a function that accepts a string. The functio
 capitalize1('a short sentence');
 capitalize1('a lazy fox');
 capitalize1('look, it is working!');
+
+
+capitalize2('a short sentence');
+capitalize2('a lazy fox');
+capitalize2('look, it is working!');
+
+console.log("%c Steps | Write a function that accepts a positive number N. The function should console log a step shape with N levels using the # character. Make sure the step has spaces on the right hand side!",
+  "color: green; font-weight: bold"
+);
+
+steps(5);
