@@ -332,7 +332,27 @@ function steps2(n){
     arrWords.push(stash);
   }
 
-  console.log('steps2', arrWords);
+  console.log('steps2:', arrWords);
+}
+
+function steps3_recursion(n, row = 0, stair = ''){
+  if( n === row ){
+    return;
+  }
+
+  if( stair.length === n){
+    console.log('steps3_recursion:' ,stair); 
+    return steps3_recursion(n, row + 1);
+  }
+
+  if( stair.length <= row){
+    stair += '#';
+  } else {
+    stair += '.';
+  }
+
+  steps3_recursion(n, row, stair);
+
 }
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
@@ -413,3 +433,4 @@ console.log("%c Steps | Write a function that accepts a positive number N. The f
 
 steps1(5);
 steps2(5);
+steps3_recursion(5);
