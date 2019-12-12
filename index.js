@@ -250,6 +250,19 @@ function anagrams2_buildCharMap(str){
   return charMap;
 }
 
+function anagrams3(str1, str2){
+  if(anagrams3_cleanString(str1) === anagrams3_cleanString(str2)){
+    console.log('anagram3:', true, anagrams3_cleanString(str1), anagrams3_cleanString(str2) );
+  } else {
+    console.log('anagram3:', false, anagrams3_cleanString(str1), anagrams3_cleanString(str2));
+  }
+
+}
+
+function anagrams3_cleanString(str){
+  return str.replace(/[^A-Z0-9]/ig, "").toLowerCase().split('').sort().join('');
+}
+
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
 reverse2('rafael');
@@ -305,3 +318,7 @@ anagrams1('hi there', 'bye there');
 anagrams2('rail safety', 'fairy tales');
 anagrams2('rail! SAFETY!', 'fairy tales');
 anagrams2('hi there', 'bye there');
+
+anagrams3('rail safety', 'fairy tales');
+anagrams3('rail! SAFETY!', 'fairy tales');
+anagrams3('hi there', 'bye there');
