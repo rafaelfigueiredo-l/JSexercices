@@ -289,7 +289,7 @@ function capitalize2(str){
 }
 
 
-function steps(n){
+function steps1(n){
   let arrBlank = [];
   let mapBlank = {};
 
@@ -301,17 +301,39 @@ function steps(n){
 
   for ( let i = 0; i < n ; i++){
     if(mapBlank[i].length < n){
-      //let x = n - i - 1;
+      let x = n - i - 1;
+      let char = '.';
+      char = char.repeat(x);
+      mapBlank[i] = mapBlank[i] + char;
+      mapBlank[i] = mapBlank[i];
+      //console.log(char);
 
-      for( x = n ; x !== 1 ; x - i - 1  ){
-        mapBlank[i] = mapBlank[i] + x;
-      }
+      console.log(mapBlank[i]);
     }
   }
 
-  console.log('Steps:', mapBlank);
+  console.log('Steps1:', mapBlank);
 }
 
+function steps2(n){
+  let arrWords = [];
+
+  for(let rows = 0; rows < n ; rows++) {
+    let stash = '';
+
+    for(let columns = 0; columns < n ; columns ++){
+      if(columns <= rows){
+        stash += '#';
+      } else {
+        stash += '.';
+      }
+    }
+
+    arrWords.push(stash);
+  }
+
+  console.log('steps2', arrWords);
+}
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
 reverse2('rafael');
@@ -389,4 +411,5 @@ console.log("%c Steps | Write a function that accepts a positive number N. The f
   "color: green; font-weight: bold"
 );
 
-steps(5);
+steps1(5);
+steps2(5);
