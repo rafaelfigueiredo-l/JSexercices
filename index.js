@@ -263,6 +263,20 @@ function anagrams3_cleanString(str){
   return str.replace(/[^A-Z0-9]/ig, "").toLowerCase().split('').sort().join('');
 }
 
+function capitalize1(str){
+  const strMap = str.split('').map((element, i) => {
+    if(i === 0){
+      return element.toUpperCase();
+    }
+    if(str[i - 1] === ' '){
+      return element.toUpperCase();
+    }
+    return element;
+  }).join('');
+
+  console.log('capitalize:', strMap);
+}
+
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
 reverse2('rafael');
@@ -322,3 +336,11 @@ anagrams2('hi there', 'bye there');
 anagrams3('rail safety', 'fairy tales');
 anagrams3('rail! SAFETY!', 'fairy tales');
 anagrams3('hi there', 'bye there');
+
+
+console.log('%c Capitalize | Write a function that accepts a string. The function should capitalize the first letter of each word in the string then return the capitalized string.', 'color: green; font-weight: bold');
+
+
+capitalize1('a short sentence');
+capitalize1('a lazy fox');
+capitalize1('look, it is working!');
