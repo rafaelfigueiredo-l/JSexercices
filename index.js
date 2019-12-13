@@ -288,7 +288,25 @@ function capitalize2(str){
   console.log('capitalize2:', result);
 }
 
+function capitalize3(str){
+  let words = [];
+  for(let word of str.split(' ')){
+    words.push(word.toString().substring(0, 1).toUpperCase() + word.substring(1));
+  }
 
+  console.log('capitalize3:', words);
+}
+
+function capitalize4(str){
+  let words = [];
+  let arrStr = str.split(' ');
+
+  for(let i = 0; i < arrStr.length ; i++){
+    words.push(arrStr[i].substring(0, 1).toUpperCase() + arrStr[i].substring(1));
+  }
+
+  console.log('capitalize4:', words);
+}
 function steps1(n){
   let arrBlank = [];
   let mapBlank = {};
@@ -427,6 +445,14 @@ capitalize2('a short sentence');
 capitalize2('a lazy fox');
 capitalize2('look, it is working!');
 
+capitalize3('a short sentence');
+capitalize3('a lazy fox');
+capitalize3('look, it is working!');
+
+
+
+
+
 console.log("%c Steps | Write a function that accepts a positive number N. The function should console log a step shape with N levels using the # character. Make sure the step has spaces on the right hand side!",
   "color: green; font-weight: bold"
 );
@@ -434,3 +460,9 @@ console.log("%c Steps | Write a function that accepts a positive number N. The f
 steps1(5);
 steps2(5);
 steps3_recursion(5);
+
+
+
+capitalize4('a short sentence');
+capitalize4('a lazy fox');
+capitalize4('look, it is working!');
