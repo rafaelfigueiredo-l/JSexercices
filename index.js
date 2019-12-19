@@ -96,23 +96,29 @@ function maxChar(str){
 function fizzBuzz(int){
   console.log(int);
   for(let i = 0; i < int; i++){
+    if( i === 0){
+      continue;
+    }
     if(i % 3 === 0 && i % 5 === 0 && i !== 0){
-      console.log('fizzbuzz');
+      console.log('fizzbuzz: ', i);
     } else {
-      if(i % 3 === 0) console.log('fizz');
-      if(i % 5 === 0) console.log('buzz');
+      if(i % 3 === 0) console.log('fizz: ', i);
+      if(i % 5 === 0) console.log('buzz: ', i);
     }
   }
 }
 
-function fizzBuzz(int){
+function fizzBuzz2(int){
   console.log(int);
   for(let i = 0; i < int; i++){
-    if(i % 3 === 0 && i % 5 === 0 && i !== 0){
-      console.log('fizzbuzz');
-    } else {
-      if(i % 3 === 0) console.log('fizz');
-      if(i % 5 === 0) console.log('buzz');
+    if( i === 0){
+      continue;
+    } else if(i % 3 === 0 && i % 5 === 0 && i !== 0){
+      console.log('fizzbuzz: ', i);
+    } else if(i % 3 === 0) {
+      console.log('fizz: ', i);
+    } else if(i % 5 === 0) {
+      console.log('buzz:', i);
     }
   }
 }
@@ -402,7 +408,7 @@ maxChar('rafafafafafaffafafafafafafaafafaff');
 console.log('%c FizzBuzz | Write a program that console logs the numbers from 1 to n. But for multiples of three print "fizz" instead of the number and for the multiples of five print "buzz". For numbers which are multiples of both three and five print "fizzbuzz".', 'color: green; font-weight: bold');
 
 fizzBuzz(20);
-fizzBuzz(10);
+fizzBuzz2(20);
 
 
 console.log('%c Array Chunking | Given an array and chunk size, divide the array into many subarrays where each subarray is of length size.', 'color: green; font-weight: bold');
