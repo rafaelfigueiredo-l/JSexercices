@@ -110,10 +110,8 @@ function fizzBuzz(int){
 
 function fizzBuzz2(int){
   console.log(int);
-  for(let i = 0; i < int; i++){
-    if( i === 0){
-      continue;
-    } else if(i % 3 === 0 && i % 5 === 0 && i !== 0){
+  for(let i = 1; i < int; i++){
+    if(i % 3 === 0 && i % 5 === 0 && i !== 0){
       console.log('fizzbuzz: ', i);
     } else if(i % 3 === 0) {
       console.log('fizz: ', i);
