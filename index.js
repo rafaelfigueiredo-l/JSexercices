@@ -396,7 +396,29 @@ function pyramid(n){
     pyramidMap.push(stashRow);
   }
 
-  console.log(pyramidMap);
+  console.log('pyramid:', pyramidMap);
+}
+
+
+function pyramid_recursive(n, row = 0, level = ''){
+  if(row ===n){
+    return;
+  }
+
+  if (level.length === 2 * n - 1){
+    return pyramid_recursive(n, row + 1);
+  }
+
+  const midpoint = Math.floor((2 * n -1 ) / 2);
+
+  let add;
+  if(midpoint - row <= level.length && midpoint + row >= level.length){
+    add = '#';
+  } else {
+    add = '.';
+  }
+
+  pyramid_recursive(n, row, level + add);
 }
 
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
@@ -500,3 +522,4 @@ console.log("%c Pyramids | Write a function that accepts a positive number N. Th
 );
 
 pyramid(3);
+pyramid_recursive(3);
