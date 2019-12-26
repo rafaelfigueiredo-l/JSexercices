@@ -376,6 +376,29 @@ function steps3_recursion(n, row = 0, stair = ''){
   steps3_recursion(n, row, stair);
 
 }
+
+function pyramid(n){
+  const midpoint = Math.floor(n / 2) + 1;
+  const pyramidMap = [];
+
+
+  for(let row = 0; row < n ; row++){
+    let stashRow = '';
+    
+    for(let column = 0; column < n * 2 -1; column++){
+      if(midpoint - row <= column && midpoint + row >= column){
+        stashRow += '#';
+      } else{
+        stashRow += '.';
+      }
+    }
+
+    pyramidMap.push(stashRow);
+  }
+
+  console.log(pyramidMap);
+}
+
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
 reverse2('rafael');
@@ -470,3 +493,10 @@ steps3_recursion(5);
 capitalize4('a short sentence');
 capitalize4('a lazy fox');
 capitalize4('look, it is working!');
+
+
+console.log("%c Pyramids | Write a function that accepts a positive number N. The function should console log a pyramid shape with N levels using the # character. Make sure the pyramid has spaces on both the left *and* right hand sides.",
+  "color: green; font-weight: bold"
+);
+
+pyramid(3);
