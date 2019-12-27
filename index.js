@@ -421,6 +421,115 @@ function pyramid_recursive(n, row = 0, level = ''){
   pyramid_recursive(n, row, level + add);
 }
 
+function vowels(str){
+  let counter = 0;
+  let checker = ['a','e','i','o','u'];
+
+  for(let char of str.toLowerCase()){
+    if(checker.includes(char)){
+      counter++;
+    }
+  }
+  console.log('vowels1', counter);
+}
+
+function vowels2(str){
+  let counter = 0;
+  for(let char of str.toLowerCase()){
+    switch(char){
+      case 'a':
+        counter++;
+         break;
+      case 'e':
+        counter++;
+         break;
+      case 'i':
+        counter++;
+         break;
+      case 'o':
+        counter++;
+         break;
+      case 'u':
+        counter++;
+         break;
+      default:
+        counter;
+    }
+    //console.log(counter, char);
+      }
+  console.log('vowels2', counter);
+}
+
+function vowels3(str){
+  const matches = str.match(/[aeiou]/gi);
+  const result = matches ? matches.length : 0;
+
+  console.log('vowels3', result);
+}
+
+function BinaryGap(N) {
+    let convertedToBinary = N.toString(2);
+    let maxStashedZeros = 0;
+    let stash = 0;
+    let isOne = 0;
+
+    //console.log(convertedToBinary);
+
+    for(let char of convertedToBinary){
+      if(char === '1' ){
+        isOne++;
+      }
+    }
+
+    //console.log('isOne', isOne);
+    if(isOne < 2){
+      return 0;
+    }
+
+
+    for(let i = 0; i < convertedToBinary.length; i++){
+      if(convertedToBinary[i] === '1'){
+        stash = 0;
+      }
+
+      if(convertedToBinary[i] === '0'){
+        stash++;
+      }
+
+      if(convertedToBinary[i + 1] === '1'){
+        if(stash > maxStashedZeros){
+          maxStashedZeros = stash;
+        }
+      }
+    }
+
+    console.log('BinaryGap', maxStashedZeros);
+   
+   
+}
+function OddOccurrencesInArray(A) {
+    
+    let mapArr = {};
+    let aloneNumber = 0;
+    
+    for(let element of A){
+        if(!mapArr[element]){
+            mapArr[element] = 1;   
+        } else {
+          mapArr[element]++;
+        }
+    }
+
+    for (let [key, value] of Object.entries(mapArr)) {
+      if(value === 1){
+        aloneNumber = parseInt(key, 10);
+      }
+    }
+
+    
+    console.log('OddOccurrencesInArray', aloneNumber);   
+}
+
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
 reverse2('rafael');
@@ -523,3 +632,26 @@ console.log("%c Pyramids | Write a function that accepts a positive number N. Th
 
 pyramid(3);
 pyramid_recursive(3);
+
+
+console.log("%c Vowels | Write a function that returns the number of vowels used in a string. Vowels are the characters 'a', 'e', 'i', 'o', 'u'.",
+  "color: green; font-weight: bold"
+);
+
+
+vowels('Why do you ask?');
+vowels2('Why do you ask?');
+vowels3('Why do you ask?');
+
+
+console.log("%c BinaryGap | Find longest sequence of zeros in binary representation of an integer.",
+  "color: green; font-weight: bold"
+);
+
+BinaryGap(1051);
+
+console.log("%c OddOccurrencesInArray | Find value that occurs in odd number of elements.",
+  "color: green; font-weight: bold"
+);
+
+OddOccurrencesInArray([9, 3, 9, 3, 9, 7, 9]);
