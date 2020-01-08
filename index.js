@@ -530,6 +530,29 @@ function OddOccurrencesInArray(A) {
     console.log('OddOccurrencesInArray', aloneNumber);   
 }
 
+
+function whereArtThou(collection, source) {
+  // What's in a name?
+  var arr = [];
+
+  const keys = Object.keys(source);  
+ 
+ arr = collection.filter(function(element, index){
+   for(let i = 0; i < keys.length; i++){
+     if(element[keys[0]] === source[keys[i]] && element.hasOwnProperty(keys[i]) ){
+       //console.log(source[keys]);
+       return true;
+     } else {
+       return false;
+     }
+   }
+ });
+
+  console.log(arr);
+  // Only change code above this line
+  return arr;
+}
+
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
 reverse2('rafael');
@@ -655,3 +678,9 @@ console.log("%c OddOccurrencesInArray | Find value that occurs in odd number of 
 );
 
 OddOccurrencesInArray([9, 3, 9, 3, 9, 7, 9]);
+
+console.log("%c OddOccurrencesInArray | Make a function that looks through an array of objects (first argument) and returns an array of all objects that have matching name and value pairs (second argument). Each name and value pair of the source object has to be present in the object from the collection if it is to be included in the returned array. For example, if the first argument is [{ first: 'Romeo', last: 'Montague' }, { first: 'Mercutio', last: null }, { first: 'Tybalt', last: 'Capulet' }], and the second argument is { last: 'Capulet' }, then you must return the third object from the array (the first argument), because it contains the name and its value, that was passed on as the second argument.",
+  "color: green; font-weight: bold"
+);
+
+whereArtThou([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
