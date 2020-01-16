@@ -553,6 +553,36 @@ function whereArtThou(collection, source) {
   return arr;
 }
 
+function translatePigLatin(str) {
+  let m = str.match(/[aeiou]/);
+
+  //console.log(m);
+
+  //solving words without vocals
+  if(m === null){
+    console.log(str+'ay');
+    return str+'ay';
+  }
+  //solving words starting with vocal
+  if(m.index === 0){
+    console.log(str+'way');
+    return str + 'way';
+  }
+
+  //solving words not starting with vocals
+
+  const initialSlice = str.slice(0, m.index);
+  const endSlice = str.slice(m.index, str.length);
+
+  //console.log(initialSlice);
+  //console.log(endSlice);
+
+  console.log(endSlice + initialSlice + 'ay');
+
+  
+  return endSlice + initialSlice + 'ay';
+}
+
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
 reverse2('rafael');
@@ -684,3 +714,12 @@ console.log("%c OddOccurrencesInArray | Make a function that looks through an ar
 );
 
 whereArtThou([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+console.log("%c OddOccurrencesInArray | Translate the provided string to pig latin. Pig Latin takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an 'ay'. If a word begins with a vowel you just add 'way' to the end. If a word does not contain a vowel, just add 'ay' to the end. Input strings are guaranteed to be English words in all lowercase. Remember to use Read-Search-Ask if you get stuck. Try to pair program. Write your own code.",
+  "color: green; font-weight: bold"
+);
+
+
+translatePigLatin("algorithm");
+translatePigLatin("schwartz");
+translatePigLatin("rhythm");
