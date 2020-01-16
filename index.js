@@ -597,6 +597,24 @@ function myReplace(str, before, after) {
   }
 }
 
+function pairElement(str) {
+  const mapLetters = {
+    A: ['A', 'T'],
+    T: ['T', 'A'],
+    C: ['C', 'G'],
+    G: ['G', 'C'],
+  }
+
+  console.log(mapLetters);
+  let pairing = [];
+  for(let letter of str.split('')){
+    pairing.push(mapLetters[letter]);
+  }
+
+  console.log(pairing);
+  return pairing;
+}
+
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
 reverse2('rafael');
@@ -744,3 +762,13 @@ console.log("%c myReplace | Perform a search and replace on the sentence using t
 
 myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
 myReplace("He is Sleeping on the couch", "Sleeping", "sitting");
+
+
+console.log("%c pairElement | The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array. Base pairs are a pair of AT and CG. Match the missing element to the provided character. Return the provided character as the first element in each array. For example, for the input GCG, return [['G', 'C'], ['C','G'],['G', 'C']]. The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.",
+  "color: green; font-weight: bold"
+);
+
+pairElement("GCG");
+pairElement("ATCGA");
+pairElement("TTGAG");
+pairElement("CTCTA");
