@@ -583,6 +583,20 @@ function translatePigLatin(str) {
   return endSlice + initialSlice + 'ay';
 }
 
+function myReplace(str, before, after) {
+  if(true === str.includes(before)){
+    if(before[0] === before[0].toUpperCase()){
+      let firstLetter = after.slice(0, 1).toUpperCase();
+      let endWord = after.slice(1, str.length);
+      after = firstLetter + endWord;
+      //console.log(firstLetter, endWord, after);
+    }
+    let r = str.replace(before, after);
+    console.log(r);
+    return r;
+  }
+}
+
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
 reverse2('rafael');
@@ -715,7 +729,7 @@ console.log("%c OddOccurrencesInArray | Make a function that looks through an ar
 
 whereArtThou([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
 
-console.log("%c OddOccurrencesInArray | Translate the provided string to pig latin. Pig Latin takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an 'ay'. If a word begins with a vowel you just add 'way' to the end. If a word does not contain a vowel, just add 'ay' to the end. Input strings are guaranteed to be English words in all lowercase. Remember to use Read-Search-Ask if you get stuck. Try to pair program. Write your own code.",
+console.log("%c translatePigLatin | Translate the provided string to pig latin. Pig Latin takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an 'ay'. If a word begins with a vowel you just add 'way' to the end. If a word does not contain a vowel, just add 'ay' to the end. Input strings are guaranteed to be English words in all lowercase. Remember to use Read-Search-Ask if you get stuck. Try to pair program. Write your own code.",
   "color: green; font-weight: bold"
 );
 
@@ -723,3 +737,10 @@ console.log("%c OddOccurrencesInArray | Translate the provided string to pig lat
 translatePigLatin("algorithm");
 translatePigLatin("schwartz");
 translatePigLatin("rhythm");
+
+console.log("%c myReplace | Perform a search and replace on the sentence using the arguments provided and return the new sentence. First argument is the sentence to perform the search and replace on. Second argument is the word that you will be replacing (before). Third argument is what you will be replacing the second argument with (after). Note Preserve the case of the first character in the original word when you are replacing it. For example if you mean to replace the word 'Book' with the word 'dog', it should be replaced as 'Dog'",
+  "color: green; font-weight: bold"
+);
+
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+myReplace("He is Sleeping on the couch", "Sleeping", "sitting");
