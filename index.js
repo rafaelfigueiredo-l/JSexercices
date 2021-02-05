@@ -615,6 +615,30 @@ function pairElement(str) {
   return pairing;
 }
 
+function fearNotLetter(str) {
+
+var compare = str.charCodeAt(0),
+    missing;
+  const result = str.split('').map((item)=>{
+    if(item.charCodeAt(0) === compare){
+      compare++;
+    } else {
+      missing = String.fromCharCode(compare);
+    }
+  });
+  console.log({missing});
+  return missing;
+}
+
+
+console.log('%c Find the missing letter in the passed letter range and return it. If all letters are present in the range, return undefined.', 'color: green; font-weight: bold');
+fearNotLetter("abce");
+fearNotLetter("abcdefghjklmno");
+fearNotLetter("stvwx")
+fearNotLetter("bcdf")
+fearNotLetter("abcdefghijklmnopqrstuvwxyz")
+
+
 console.log('%c Reverse String | Given a string, return a new string with the reversed order of characters', 'color: green; font-weight: bold');
 reverse1('rafael');
 reverse2('rafael');
